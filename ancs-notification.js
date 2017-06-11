@@ -92,7 +92,8 @@ Notification.prototype.toString = function() {
     messageSize: this.messageSize,
     date: this.date,
     positiveLabel: this.positiveLabel,
-    negativeLabel: this.negativeLabel
+    negativeLabel: this.negativeLabel,
+    appIdentifier: this.appIdentifier
   });
 };
 
