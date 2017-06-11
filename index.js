@@ -149,7 +149,7 @@ BleAncs.prototype.unqueueAttributeRequest = function() {
           this.requestNotificationAttribute(request.uid, request.attributeId, 255);
         }
         this._requestTimeout = setTimeout(this.unqueueAttributeRequest.bind(this),1000000);
-      }.bind(this), 1000);
+      }.bind(this), 200);
     }
   }
 };
