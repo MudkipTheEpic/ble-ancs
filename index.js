@@ -127,6 +127,14 @@ BleAncs.prototype.requestNotificationAttribute = function(uid, attributeId, maxL
   this._characteristics[CONTROL_POINT_UUID].write(buffer, false);
 };
 
+BleAncs.prototype.respondToNotification = function(uid, action) {
+  var buffer = new Buffer(6)
+  buffer.writeUInt8(0x02, 0)
+  buffer.writeUInt32LE(uid, 1)
+  buffer.writeUInt8(action ? 0 : 1,1)
+  this._characteristics[CONTROL_POINT_UUID].write(buffer, false);
+}
+
 BleAncs.prototype.unqueueAttributeRequest = function() {
   if (this._requestQueue.length) {
     var request = this._requestQueue.shift();
